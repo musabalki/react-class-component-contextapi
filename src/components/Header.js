@@ -2,23 +2,32 @@ import {Link} from "react-router-dom"
 import React from "react";
 
 class Header extends React.Component{
+  state={
+    toggle:false
+  }
+  menuToggle=()=>{
+    console.log(this.state.toggle)
+    this.setState({toggle:!this.state.toggle})
+    //console.log(this.state.toggle)
+  }
   render(){
+    
     return (
       <header>
-          <div className="menu">
+          <div className="menu" onClick={this.menuToggle}>
                 Menu
           </div>
           <div className="logo">
                 <h1><Link to="">Nike</Link></h1>
           </div>
           <nav>
-              <ul>
-                  <li><Link to="">Home</Link></li>
-                  <li><Link to="">Product</Link></li>
-                  <li><Link to="">Contact</Link></li>
-                  <li><Link to="">About</Link></li>
-                  <li><Link to="">Login</Link></li>
-                  <li className="close">X</li>
+              <ul className={this.state.toggle ? 'toggle': ''}>
+                  <li><Link to="/">Home</Link></li>
+                  <li><Link to="/product">Product</Link></li>
+                  <li><Link to="/contact">Contact</Link></li>
+                  <li><Link to="/about">About</Link></li>
+                  <li><Link to="/login">Login</Link></li>
+                  <li className="close" onClick={this.menuToggle}>X</li>
                   
               </ul>
               <div className="nav-cart">
