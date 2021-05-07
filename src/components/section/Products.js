@@ -6,7 +6,7 @@ class Products extends React.Component {
   static contextType=DataContext;
 
   render() {
-    const {products}=this.context;
+    const {products,addCart}=this.context;
     return (
       <div id="product">
           {
@@ -23,7 +23,7 @@ class Products extends React.Component {
                   </h3>
                   <span>{product.price}</span>
                   <p>{product.description}</p>
-                  <button>Add to card</button>
+                  <button onClick={()=>addCart(product._id)}>Add to card</button>
                 </div>
               </div>
             ))

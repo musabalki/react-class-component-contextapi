@@ -1,5 +1,6 @@
 import {Link} from "react-router-dom"
 import React from "react";
+import {DataContext} from "./Context"
 
 class Header extends React.Component{
   state={
@@ -10,8 +11,9 @@ class Header extends React.Component{
     this.setState({toggle:!this.state.toggle})
     //console.log(this.state.toggle)
   }
+  static contextType=DataContext;
   render(){
-    
+    const {cart}=this.context;
     return (
       <header>
           <div className="menu" onClick={this.menuToggle}>
@@ -31,7 +33,7 @@ class Header extends React.Component{
                   
               </ul>
               <div className="nav-cart">
-                    <span>0</span>
+                    <span>{cart.length}</span>
                     <Link to="/cart">CARD</Link>
               </div>
           </nav>
