@@ -1,1 +1,1 @@
-## Reactjs context ile uygulama yapılacak
+## Reactjs context api kullanılarak sepete ekleme uygulaması yapıldı
